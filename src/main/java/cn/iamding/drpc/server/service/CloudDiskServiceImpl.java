@@ -26,7 +26,7 @@ public class CloudDiskServiceImpl extends CloudDiskServiceGrpc.CloudDiskServiceI
                 .setShareUrl("https://www.baidu.com")
                 .build();
         rpcResponse = RPCUploadFileResponse.newBuilder().setCode(Constants.RESPONSE_OK)
-                .setMsg("请求成功")
+                .setMsg("request succ")
                 .setData(uploadResult)
                 .setUploadJsonResponse("testJson")
                 .build();
