@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true; //表示生成的各个块会被独立放在不同的文件
+option java_package = "com.iqiyi.hotchat.cloud.disk.grpc";
+option java_outer_classname = "CloudDiskProto";
+option objc_class_prefix = "CloudDisk";
+
+
+service CloudDiskService {
+    rpc rpcUpload (RPCUploadFileRequest) returns (RPCUploadFileResponse) {
+    }
+}
+
+message RPCUploadFileResponse {
+    UploadResult data =1;
+    message UploadResult {
+        string share_url=4;
+        string file_id=5;
+    }
+    string code =2;
+    string msg = 3;
+    string UploadJsonResponse = 6;
+
+}
+
+message RPCUploadFileRequest {
+    bytes content = 1;
+    string fileType = 2;
+    string shareType = 3;
+}
+
+
+
+
+
+
+
+
