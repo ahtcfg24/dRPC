@@ -1,4 +1,4 @@
-package cn.iamding.drpc.rpc;
+package cn.iamding.drpc.server.rpc;
 
 import io.grpc.stub.ClientCalls;
 

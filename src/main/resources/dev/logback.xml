@@ -5,11 +5,6 @@
             <pattern>%d{ISO8601} [%thread] [%-5level] %logger - %msg%n</pattern>
         </layout>
     </appender>
-    <logger name="com.atomikos" level="warn"/>
-    <logger name="org.springframework" level="warn"/>
-    <logger name="org.hibernate" level="warn"/>
-    <logger name="org.apache" level="warn"/>
-    <logger name="ch.qos.logback" level="warn"/>
 
     <root level="info">
         <appender-ref ref="STDOUT"/>
