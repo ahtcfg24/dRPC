@@ -2,7 +2,7 @@ package cn.iamding.drpc.server.service;
 
 
 import cn.iamding.drpc.server.Constants;
-import cn.iamding.drpc.server.utils.CustomSystemUtil;
+import cn.iamding.drpc.server.utils.HostUtils;
 import cn.iamding.drpc.server.zk.ServiceDiscovery;
 import io.grpc.Server;
 import io.grpc.netty.NettyServerBuilder;
@@ -40,9 +40,9 @@ public class CloudDiskServer {
                 .addService(cloudDiskService)
                 .build()
                 .start();
-        LOGGER.info("启动成功！");
+        LOGGER.info("RPC服务端启动成功！");
         ServiceDiscovery serviceDiscovery = new ServiceDiscovery(zkConnectString);
-        String ip = CustomSystemUtil.OUTTER_IP;
+        String ip = HostUtils.getHostIp();
         serviceDiscovery.registerService("drpc-server", URI.create("dns://" + ip + ":" + server.getPort()), Constants.SERVER_TARGET);
         try {
             server.awaitTermination();

@@ -38,11 +38,12 @@ public class ServiceDiscovery implements Closeable {
     }
 
     public void registerService(final String serviceId, final URI endpointURI, final String zone) throws Exception {
+        LOGGER.info("注册服务:{}", endpointURI.toString());
         String znode = ensureNodeForServiceExists(serviceId);
         String path = curatorFramework.create()
                 .withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
                 .forPath(znode + ZK_DELIMITER, (endpointURI.toASCIIString() + ZONE_DELIMITER + zone).getBytes());
-        LOGGER.info("服务注册节点:{}", path);
+        LOGGER.info("节点添加成功:{}", path);
     }
 
     public void registerService(final String serviceId, final URI endpointURI) throws Exception {

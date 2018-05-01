@@ -33,7 +33,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -144,6 +144,21 @@
                     <resource>
                         <directory>
                             ${project.basedir}/src/main/resources/dev
+                        </directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>dev2</id>
+            <properties>
+                <profiles.activation>dev2</profiles.activation>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>
+                            ${project.basedir}/src/main/resources/dev2
                         </directory>
                     </resource>
                 </resources>
