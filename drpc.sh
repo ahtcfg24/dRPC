@@ -62,6 +62,6 @@ case $1 in
     ;;
     log) log
     ;;
-    *)  echo 'params must be one of [start,stop,restart,deploy]'
+    *)  echo 'params must be one of [start,stop,restart,deploy,log]'
     ;;
 esac
