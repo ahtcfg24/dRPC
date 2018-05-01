@@ -40,18 +40,18 @@ public class HostUtils {
                     if (addr instanceof Inet4Address) { // 只关心 IPv4 地址
                         String ip = addr.getHostAddress();
                         LOGGER.info("网卡接口[{}]:[{}]", nif.getName(), addr.getHostAddress());
-//                        if (ip.startsWith("10")) { //只返回内网ip
-//                            return ip;
-//                        }
-                        if (!ip.startsWith("10")) { //只返回外网ip
+                        if (ip.startsWith("10")) { //只返回内网ip
                             return ip;
                         }
+//                        if (!ip.startsWith("10")) { //只返回外网ip
+//                            return ip;
+//                        }
 
                     }
                 }
             }
         } catch (SocketException e) {
-            e.printStackTrace();
+            LOGGER.error("获取网卡信息异常", e);
         }
         return "127.0.0.1";
     }
@@ -60,7 +60,7 @@ public class HostUtils {
         try {
             return ipCache.get(HOST_IP_KEY);
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            LOGGER.error("获取网卡信息异常", e);
         }
         return "127.0.0.1";
     }
