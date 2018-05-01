@@ -1,6 +1,6 @@
 package cn.iamding.drpc.server.listener;
 
-import cn.iamding.drpc.server.service.CloudDiskServer;
+import cn.iamding.drpc.server.service.DRPCServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class StartupListener implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
-    private CloudDiskServer server;
+    private DRPCServer server;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {

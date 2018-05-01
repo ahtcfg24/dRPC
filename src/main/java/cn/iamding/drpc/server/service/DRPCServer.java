@@ -16,12 +16,11 @@ import java.net.URI;
 
 /**
  * author 徐鼎
- * time 2017/8/4
- * 云盘服务grpc服务端启动程序
+ * rpc服务端启动程序
  * Server启动后会一直堵塞线程，需要在单独线程中开启，否则会堵塞主线程
  */
 @Component
-public class CloudDiskServer {
+public class DRPCServer {
 
     @Value("${zk.connect-string}")
     private String zkConnectString;
@@ -32,12 +31,16 @@ public class CloudDiskServer {
     @Autowired
     private CloudDiskServiceImpl cloudDiskService;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CloudDiskServer.class);
+    @Autowired
+    private StudentServiceImpl studentService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DRPCServer.class);
 
 
     public void start() throws Exception {
         Server server = NettyServerBuilder.forPort(port)
                 .addService(cloudDiskService)
+                .addService(studentService)
                 .build()
                 .start();
         LOGGER.info("RPC服务端启动成功！");

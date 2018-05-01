@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true; //表示生成的各个块会被独立放在不同的文件
+option java_package = "cn.iamding.drpc.client.rpc.student";
+option java_outer_classname = "StudentProto";
+option objc_class_prefix = "Student";
+
+
+service StudentService {
+    rpc submitStudent (Student) returns (SubmitResult) {
+    }
+}
+
+message Student {
+    string name=1;
+    string sex=2;
+    int32 age=3;
+    string photo=4;
+}
+
+
+message SubmitResult {
+    string code =1;
+    string msg = 2;
+    Student data = 3;
+}
+
+
+
+
+
+
+
+
+

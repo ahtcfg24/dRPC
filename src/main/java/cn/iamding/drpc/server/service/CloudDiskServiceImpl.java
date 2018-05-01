@@ -2,9 +2,9 @@ package cn.iamding.drpc.server.service;
 
 
 import cn.iamding.drpc.server.Constants;
-import cn.iamding.drpc.server.rpc.CloudDiskServiceGrpc;
-import cn.iamding.drpc.server.rpc.RPCUploadFileRequest;
-import cn.iamding.drpc.server.rpc.RPCUploadFileResponse;
+import cn.iamding.drpc.server.rpc.disk.CloudDiskServiceGrpc;
+import cn.iamding.drpc.server.rpc.disk.RPCUploadFileRequest;
+import cn.iamding.drpc.server.rpc.disk.RPCUploadFileResponse;
 import cn.iamding.drpc.server.utils.HostUtils;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
@@ -12,9 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by xuding_sx on 2017/7/27.
- */
 @Component
 public class CloudDiskServiceImpl extends CloudDiskServiceGrpc.CloudDiskServiceImplBase {
 
