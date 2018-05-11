@@ -40,7 +40,7 @@ deploy(){
         cp ${application_home}/${application_name} ${application_home}/${application_name}.bak
     fi
     echo "--- replace"
-    cp ${repo_parent}/target/${application_name} ${application_home}/${application_name}
+    cp ${code_home}/target/${application_name} ${application_home}/${application_name}
     echo "--- start"
     restart
 }
