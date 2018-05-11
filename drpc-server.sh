@@ -38,7 +38,7 @@ deploy(){
     if [ ! -f ${application_home}/${application_name} ]; then
         echo "--- don't need backup"
     else
-        cp ${application_home}/${application_name} ${application_home}/${application_name}.bak
+        mv ${application_home}/${application_name} ${application_home}/${application_name}.bak
     fi
     echo "--- replace"
     cp ${code_home}/target/${application_name} ${application_home}/${application_name}
