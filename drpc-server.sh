@@ -2,14 +2,14 @@
 
 # replace your path and name
 name=dRPC-Server
+repo=git@github.com:ahtcfg24/dRPC-Server.git
 
-repo=git@github.com:ahtcfg24/${name}.git
 application_name=${name}-1.0.0.jar
 log_name=${name}.log
 
 log_home=/data/logs/${name}
 application_home=/data/application/${name}
-repo_parent=/data/repo/
+repo_parent=/data/repo
 code_home=${repo_parent}/${name}
 
 
