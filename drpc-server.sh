@@ -17,6 +17,7 @@ maven_home=/usr/maven/apache-maven/bin
 code_profile=prod
 
 deploy(){
+    echo "--- deploy"
     if [ ! -d ${repo_parent} ]; then
         mkdir -p ${repo_parent}
         cd ${repo_parent}
@@ -41,33 +42,36 @@ deploy(){
     fi
     echo "--- replace"
     cp ${code_home}/target/${application_name} ${application_home}/${application_name}
-    echo "--- start"
     restart
 }
 
 restart(){
+    echo "--- restart"
 	stop
 	start
 }
 
 start(){
+    echo "--- start"
     nohup java -jar ${application_home}/${application_name} </dev/null > /dev/null 2>&1 &
     log
 }
 
 stop(){
+    echo "--- stop"
 	echo `ps -ef |grep "${application_name}" | grep -v "grep"`
     ID=`ps -ef | grep "${application_name}" | grep -v "grep" | awk '{print $2}'`
-    echo "------find---$ID-----"
+    echo "--- find---$ID-----"
     for id in $ID
     do
         kill -9 $id
-        echo "------killed $id-----"
+        echo "--- killed $id-----"
     done
-    echo "------stoped---------"
+    echo "--- stoped---------"
 }
 
 log(){
+    echo "--- log"
 
     if [ ! -d ${log_home} ]; then
         mkdir -p ${log_home}
