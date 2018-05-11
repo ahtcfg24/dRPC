@@ -5,9 +5,10 @@ name=dRPC-Server
 
 repo=git@github.com:ahtcfg24/${name}.git
 application_name=${name}-1.0.0.jar
+log_name=${name}.log
+
 log_home=/data/logs/${name}
 application_home=/data/application/${name}
-log_file=${name}.log
 repo_parent=/data/repo/
 code_home=${repo_parent}/${name}
 
@@ -41,7 +42,7 @@ deploy(){
     echo "--- replace"
     cp ${repo_parent}/target/${application_name} ${application_home}/${application_name}
     echo "--- start"
-    start
+    restart
 }
 
 restart(){
@@ -72,10 +73,10 @@ log(){
         mkdir -p ${log_home}
     fi
 
-    if [ ! -f ${log_home}/${log_file} ]; then
-        touch ${log_home}/${log_file}
+    if [ ! -f ${log_home}/${log_name} ]; then
+        touch ${log_home}/${log_name}
     fi
-    tail -f ${log_home}/${log_file}
+    tail -f ${log_home}/${log_name}
 }
 
 case $1 in

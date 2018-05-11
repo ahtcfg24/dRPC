@@ -18,7 +18,6 @@ message Student {
     string photo=4;
 }
 
-
 message SubmitResult {
     string code =1;
     string msg = 2;
