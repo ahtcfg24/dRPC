@@ -13,7 +13,7 @@ repo_parent=/data/repo/
 code_home=${repo_parent}/${name}
 
 
-maven_home=/usr/maven/apache-maven/bin
+maven_home=/usr/local/apache-maven/bin
 code_profile=prod
 
 deploy(){
