@@ -1,16 +1,28 @@
 #!/bin/bash
 
 # replace your path and name
-name=dRPC-Server-1.0.0.jar
-log_name=/opt/logs/dRPC-Server/dRPC-Server.log
-repo_home=/data/repo/dRPC-Server
-application_home=/data/application/dRPC-Server
+name=dRPC-Server
+
+repo=git@github.com:ahtcfg24/${name}.git
+application_name=${name}-1.0.0.jar
+log_home=/data/logs/${name}
+application_home=/data/application/${name}
+log_file=${name}.log
+repo_parent=/data/repo/
+code_home=${repo_parent}/${name}
+
+
 maven_home=/usr/maven/apache-maven/bin
 code_profile=prod
 
 deploy(){
-    cd ${repo_home}
-    echo "--- pull code to ${repo_home}"
+    if [ ! -d ${repo_parent} ]; then
+        mkdir -p ${repo_parent}
+        cd ${repo_parent}
+        git clone ${repo}
+    fi
+    echo "--- pull code to ${code_home}"
+    cd ${code_home}
     git pull
     echo "--- mvn clean"
     ${maven_home}/mvn clean
@@ -18,9 +30,16 @@ deploy(){
     ${maven_home}/mvn package -P${code_profile}
     stop
     echo "--- backup"
-    cp ${application_home}/${name} ${application_home}/${name}.bak
+    if [ ! -d ${application_home} ]; then
+        mkdir -p ${application_home}
+    fi
+    if [ ! -f ${application_home}/${application_name} ]; then
+        echo "--- don't need backup"
+    else
+        cp ${application_home}/${application_name} ${application_home}/${application_name}.bak
+    fi
     echo "--- replace"
-    cp ${repo_home}/target/${name} ${application_home}/${name}
+    cp ${repo_parent}/target/${application_name} ${application_home}/${application_name}
     echo "--- start"
     start
 }
@@ -31,13 +50,13 @@ restart(){
 }
 
 start(){
-    nohup java -jar ${application_home}/${name} </dev/null > /dev/null 2>&1 &
+    nohup java -jar ${application_home}/${application_name} </dev/null > /dev/null 2>&1 &
     log
 }
 
 stop(){
-	echo `ps -ef |grep "${name}" | grep -v "grep"`
-    ID=`ps -ef | grep "${name}" | grep -v "grep" | awk '{print $2}'`
+	echo `ps -ef |grep "${application_name}" | grep -v "grep"`
+    ID=`ps -ef | grep "${application_name}" | grep -v "grep" | awk '{print $2}'`
     echo "------find---$ID-----"
     for id in $ID
     do
@@ -48,7 +67,15 @@ stop(){
 }
 
 log(){
-    tail -f ${log_name}
+
+    if [ ! -d ${log_home} ]; then
+        mkdir -p ${log_home}
+    fi
+
+    if [ ! -f ${log_home}/${log_file} ]; then
+        touch ${log_home}/${log_file}
+    fi
+    tail -f ${log_home}/${log_file}
 }
 
 case $1 in
