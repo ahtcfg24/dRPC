@@ -42,7 +42,7 @@ deploy(){
     fi
     echo "--- replace"
     cp ${code_home}/target/${application_name} ${application_home}/${application_name}
-    restart
+    start
 }
 
 restart(){
