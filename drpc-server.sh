@@ -24,6 +24,11 @@ deploy(){
         echo "--- clone repo to ${repo_parent}"
         git clone ${repo}
     fi
+    if [ ! -d ${code_home} ]; then
+        cd ${repo_parent}
+        echo "--- clone repo to ${repo_parent}"
+        git clone ${repo}
+    fi
     echo "--- pull code to ${code_home}"
     cd ${code_home}
     git pull
