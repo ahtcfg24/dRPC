@@ -6,877 +6,762 @@ package cn.iamding.drpc.server.rpc.student;
 /**
  * Protobuf type {@code SubmitResult}
  */
-public final class SubmitResult extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:SubmitResult)
-        SubmitResultOrBuilder {
-    private static final long serialVersionUID = 0L;
+public  final class SubmitResult extends
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:SubmitResult)
+    SubmitResultOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use SubmitResult.newBuilder() to construct.
+  private SubmitResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  private SubmitResult() {
+      code_ = 0;
+      server_ = "";
+  }
 
-    // Use SubmitResult.newBuilder() to construct.
-    private SubmitResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
+    @Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  private SubmitResult(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+        throw new NullPointerException();
     }
-
-    private SubmitResult() {
-        code_ = "";
-        msg_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
-    }
-
-    private SubmitResult(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    default: {
-                        if (!parseUnknownFieldProto3(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                    case 10: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        code_ = s;
-                        break;
-                    }
-                    case 18: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        msg_ = s;
-                        break;
-                    }
-                    case 26: {
-                        cn.iamding.drpc.server.rpc.student.Student.Builder subBuilder = null;
-                        if (data_ != null) {
-                            subBuilder = data_.toBuilder();
-                        }
-                        data_ = input.readMessage(cn.iamding.drpc.server.rpc.student.Student.parser(), extensionRegistry);
-                        if (subBuilder != null) {
-                            subBuilder.mergeFrom(data_);
-                            data_ = subBuilder.buildPartial();
-                        }
-
-                        break;
-                    }
-                }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
             }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-        }
-    }
+            break;
+          }
+            case 8: {
 
+                code_ = input.readInt32();
+            break;
+          }
+          case 18: {
+              String s = input.readStringRequireUtf8();
+
+              server_ = s;
+            break;
+          }
+          case 26: {
+              Student.Builder subBuilder = null;
+            if (data_ != null) {
+              subBuilder = data_.toBuilder();
+            }
+              data_ = input.readMessage(Student.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(data_);
+              data_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+      return StudentProto.internal_static_SubmitResult_descriptor;
+  }
+
+    protected FieldAccessorTable
+      internalGetFieldAccessorTable() {
+        return StudentProto.internal_static_SubmitResult_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+                SubmitResult.class, Builder.class);
+  }
+
+  public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+  /**
+   * <code>int32 code = 1;</code>
+   */
+  public int getCode() {
+      return code_;
+  }
+
+    public static final int SERVER_FIELD_NUMBER = 2;
+    private volatile Object server_;
+  /**
+   * <code>string server = 2;</code>
+   */
+  public String getServer() {
+      Object ref = server_;
+      if (ref instanceof String) {
+          return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          server_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string server = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+  getServerBytes() {
+      Object ref = server_;
+      if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          server_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DATA_FIELD_NUMBER = 3;
+    private Student data_;
+  /**
+   * <code>.Student data = 3;</code>
+   */
+  public boolean hasData() {
+    return data_ != null;
+  }
+  /**
+   * <code>.Student data = 3;</code>
+   */
+  public Student getData() {
+      return data_ == null ? Student.getDefaultInstance() : data_;
+  }
+  /**
+   * <code>.Student data = 3;</code>
+   */
+  public StudentOrBuilder getDataOrBuilder() {
+    return getData();
+  }
+
+  private byte memoizedIsInitialized = -1;
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+      if (code_ != 0) {
+          output.writeInt32(1, code_);
+    }
+      if (!getServerBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, server_);
+    }
+    if (data_ != null) {
+      output.writeMessage(3, getData());
+    }
+    unknownFields.writeTo(output);
+  }
+
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+      if (code_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+                  .computeInt32Size(1, code_);
+    }
+      if (!getServerBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, server_);
+    }
+    if (data_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getData());
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+    @Override
+    public boolean equals(final Object obj) {
+    if (obj == this) {
+     return true;
+    }
+        if (!(obj instanceof SubmitResult)) {
+      return super.equals(obj);
+    }
+        SubmitResult other = (SubmitResult) obj;
+
+    boolean result = true;
+        result = result && (getCode()
+                == other.getCode());
+        result = result && getServer()
+                .equals(other.getServer());
+    result = result && (hasData() == other.hasData());
+    if (hasData()) {
+      result = result && getData()
+          .equals(other.getData());
+    }
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
+  }
+
+    @Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getCode();
+        hash = (37 * hash) + SERVER_FIELD_NUMBER;
+        hash = (53 * hash) + getServer().hashCode();
+    if (hasData()) {
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+    }
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+    public static SubmitResult parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+
+    public static SubmitResult parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+
+    public static SubmitResult parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+
+    public static SubmitResult parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+
+    public static SubmitResult parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+
+    public static SubmitResult parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+
+    public static SubmitResult parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+
+    public static SubmitResult parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+    public static SubmitResult parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+
+    public static SubmitResult parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+
+    public static SubmitResult parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+
+    public static SubmitResult parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  public Builder newBuilderForType() { return newBuilder(); }
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+
+    public static Builder newBuilder(SubmitResult prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+    @Override
+  protected Builder newBuilderForType(
+            BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * Protobuf type {@code SubmitResult}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:SubmitResult)
+          SubmitResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return cn.iamding.drpc.server.rpc.student.StudentProto.internal_static_SubmitResult_descriptor;
+        getDescriptor() {
+        return StudentProto.internal_static_SubmitResult_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return cn.iamding.drpc.server.rpc.student.StudentProto.internal_static_SubmitResult_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        cn.iamding.drpc.server.rpc.student.SubmitResult.class, cn.iamding.drpc.server.rpc.student.SubmitResult.Builder.class);
+      protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+          return StudentProto.internal_static_SubmitResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+                  SubmitResult.class, Builder.class);
     }
 
-    public static final int CODE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object code_;
+      // Construct using cn.iamding.drpc.server.rpc.student.SubmitResult.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
+    }
 
-    /**
-     * <code>string code = 1;</code>
-     */
-    public java.lang.String getCode() {
-        java.lang.Object ref = code_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            code_ = s;
-            return s;
+    private Builder(
+            BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
+    }
+    public Builder clear() {
+      super.clear();
+        code_ = 0;
+
+        server_ = "";
+
+      if (dataBuilder_ == null) {
+        data_ = null;
+      } else {
+        data_ = null;
+        dataBuilder_ = null;
+      }
+      return this;
+    }
+
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+        return StudentProto.internal_static_SubmitResult_descriptor;
+    }
+
+      public SubmitResult getDefaultInstanceForType() {
+          return SubmitResult.getDefaultInstance();
+    }
+
+      public SubmitResult build() {
+          SubmitResult result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+      public SubmitResult buildPartial() {
+          SubmitResult result = new SubmitResult(this);
+      result.code_ = code_;
+          result.server_ = server_;
+      if (dataBuilder_ == null) {
+        result.data_ = data_;
+      } else {
+        result.data_ = dataBuilder_.build();
+      }
+      onBuilt();
+      return result;
+    }
+
+    public Builder clone() {
+      return (Builder) super.clone();
+    }
+    public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof SubmitResult) {
+            return mergeFrom((SubmitResult) other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+      public Builder mergeFrom(SubmitResult other) {
+          if (other == SubmitResult.getDefaultInstance()) return this;
+          if (other.getCode() != 0) {
+              setCode(other.getCode());
+      }
+          if (!other.getServer().isEmpty()) {
+              server_ = other.server_;
+        onChanged();
+      }
+      if (other.hasData()) {
+        mergeData(other.getData());
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+        SubmitResult parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (SubmitResult) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
         }
+      }
+      return this;
     }
 
+      private int code_;
     /**
-     * <code>string code = 1;</code>
+     * <code>int32 code = 1;</code>
+     */
+    public int getCode() {
+        return code_;
+    }
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    public Builder setCode(int value) {
+      
+      code_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    public Builder clearCode() {
+
+        code_ = 0;
+      onChanged();
+      return this;
+    }
+
+      private Object server_ = "";
+    /**
+     * <code>string server = 2;</code>
+     */
+    public String getServer() {
+        Object ref = server_;
+        if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+            String s = bs.toStringUtf8();
+            server_ = s;
+        return s;
+      } else {
+            return (String) ref;
+      }
+    }
+    /**
+     * <code>string server = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getCodeBytes() {
-        java.lang.Object ref = code_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            code_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+    getServerBytes() {
+        Object ref = server_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                    (String) ref);
+          server_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
-
-    public static final int MSG_FIELD_NUMBER = 2;
-    private volatile java.lang.Object msg_;
-
     /**
-     * <code>string msg = 2;</code>
+     * <code>string server = 2;</code>
      */
-    public java.lang.String getMsg() {
-        java.lang.Object ref = msg_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            msg_ = s;
-            return s;
-        }
-    }
+    public Builder setServer(
+            String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
 
+        server_ = value;
+      onChanged();
+      return this;
+    }
     /**
-     * <code>string msg = 2;</code>
+     * <code>string server = 2;</code>
      */
-    public com.google.protobuf.ByteString
-    getMsgBytes() {
-        java.lang.Object ref = msg_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            msg_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+    public Builder clearServer() {
+
+        server_ = getDefaultInstance().getServer();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string server = 2;</code>
+     */
+    public Builder setServerBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+
+        server_ = value;
+      onChanged();
+      return this;
     }
 
-    public static final int DATA_FIELD_NUMBER = 3;
-    private cn.iamding.drpc.server.rpc.student.Student data_;
-
+      private Student data_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+            Student, Student.Builder, StudentOrBuilder> dataBuilder_;
     /**
      * <code>.Student data = 3;</code>
      */
     public boolean hasData() {
-        return data_ != null;
+      return dataBuilder_ != null || data_ != null;
     }
-
     /**
      * <code>.Student data = 3;</code>
      */
-    public cn.iamding.drpc.server.rpc.student.Student getData() {
-        return data_ == null ? cn.iamding.drpc.server.rpc.student.Student.getDefaultInstance() : data_;
+    public Student getData() {
+      if (dataBuilder_ == null) {
+          return data_ == null ? Student.getDefaultInstance() : data_;
+      } else {
+        return dataBuilder_.getMessage();
+      }
     }
-
     /**
      * <code>.Student data = 3;</code>
      */
-    public cn.iamding.drpc.server.rpc.student.StudentOrBuilder getDataOrBuilder() {
-        return getData();
-    }
-
-    private byte memoizedIsInitialized = -1;
-
-    public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        if (!getCodeBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, code_);
+    public Builder setData(Student value) {
+      if (dataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
         }
-        if (!getMsgBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
-        }
-        if (data_ != null) {
-            output.writeMessage(3, getData());
-        }
-        unknownFields.writeTo(output);
+        data_ = value;
+        onChanged();
+      } else {
+        dataBuilder_.setMessage(value);
+      }
+
+      return this;
     }
-
-    public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getCodeBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, code_);
-        }
-        if (!getMsgBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
-        }
-        if (data_ != null) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(3, getData());
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof cn.iamding.drpc.server.rpc.student.SubmitResult)) {
-            return super.equals(obj);
-        }
-        cn.iamding.drpc.server.rpc.student.SubmitResult other = (cn.iamding.drpc.server.rpc.student.SubmitResult) obj;
-
-        boolean result = true;
-        result = result && getCode()
-                .equals(other.getCode());
-        result = result && getMsg()
-                .equals(other.getMsg());
-        result = result && (hasData() == other.hasData());
-        if (hasData()) {
-            result = result && getData()
-                    .equals(other.getData());
-        }
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + CODE_FIELD_NUMBER;
-        hash = (53 * hash) + getCode().hashCode();
-        hash = (37 * hash) + MSG_FIELD_NUMBER;
-        hash = (53 * hash) + getMsg().hashCode();
-        if (hasData()) {
-            hash = (37 * hash) + DATA_FIELD_NUMBER;
-            hash = (53 * hash) + getData().hashCode();
-        }
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() {
-        return newBuilder();
-    }
-
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(cn.iamding.drpc.server.rpc.student.SubmitResult prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-    }
-
     /**
-     * Protobuf type {@code SubmitResult}
+     * <code>.Student data = 3;</code>
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:SubmitResult)
-            cn.iamding.drpc.server.rpc.student.SubmitResultOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return cn.iamding.drpc.server.rpc.student.StudentProto.internal_static_SubmitResult_descriptor;
+    public Builder setData(
+            Student.Builder builderForValue) {
+      if (dataBuilder_ == null) {
+        data_ = builderForValue.build();
+        onChanged();
+      } else {
+        dataBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Student data = 3;</code>
+     */
+    public Builder mergeData(Student value) {
+      if (dataBuilder_ == null) {
+        if (data_ != null) {
+          data_ =
+                  Student.newBuilder(data_).mergeFrom(value).buildPartial();
+        } else {
+          data_ = value;
         }
+        onChanged();
+      } else {
+        dataBuilder_.mergeFrom(value);
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return cn.iamding.drpc.server.rpc.student.StudentProto.internal_static_SubmitResult_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            cn.iamding.drpc.server.rpc.student.SubmitResult.class, cn.iamding.drpc.server.rpc.student.SubmitResult.Builder.class);
-        }
+      return this;
+    }
+    /**
+     * <code>.Student data = 3;</code>
+     */
+    public Builder clearData() {
+      if (dataBuilder_ == null) {
+        data_ = null;
+        onChanged();
+      } else {
+        data_ = null;
+        dataBuilder_ = null;
+      }
 
-        // Construct using cn.iamding.drpc.server.rpc.student.SubmitResult.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-        }
-
-        public Builder clear() {
-            super.clear();
-            code_ = "";
-
-            msg_ = "";
-
-            if (dataBuilder_ == null) {
-                data_ = null;
-            } else {
-                data_ = null;
-                dataBuilder_ = null;
-            }
-            return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return cn.iamding.drpc.server.rpc.student.StudentProto.internal_static_SubmitResult_descriptor;
-        }
-
-        public cn.iamding.drpc.server.rpc.student.SubmitResult getDefaultInstanceForType() {
-            return cn.iamding.drpc.server.rpc.student.SubmitResult.getDefaultInstance();
-        }
-
-        public cn.iamding.drpc.server.rpc.student.SubmitResult build() {
-            cn.iamding.drpc.server.rpc.student.SubmitResult result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        public cn.iamding.drpc.server.rpc.student.SubmitResult buildPartial() {
-            cn.iamding.drpc.server.rpc.student.SubmitResult result = new cn.iamding.drpc.server.rpc.student.SubmitResult(this);
-            result.code_ = code_;
-            result.msg_ = msg_;
-            if (dataBuilder_ == null) {
-                result.data_ = data_;
-            } else {
-                result.data_ = dataBuilder_.build();
-            }
-            onBuilt();
-            return result;
-        }
-
-        public Builder clone() {
-            return (Builder) super.clone();
-        }
-
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return (Builder) super.setField(field, value);
-        }
-
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return (Builder) super.clearField(field);
-        }
-
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return (Builder) super.clearOneof(oneof);
-        }
-
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return (Builder) super.setRepeatedField(field, index, value);
-        }
-
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return (Builder) super.addRepeatedField(field, value);
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof cn.iamding.drpc.server.rpc.student.SubmitResult) {
-                return mergeFrom((cn.iamding.drpc.server.rpc.student.SubmitResult) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(cn.iamding.drpc.server.rpc.student.SubmitResult other) {
-            if (other == cn.iamding.drpc.server.rpc.student.SubmitResult.getDefaultInstance()) return this;
-            if (!other.getCode().isEmpty()) {
-                code_ = other.code_;
-                onChanged();
-            }
-            if (!other.getMsg().isEmpty()) {
-                msg_ = other.msg_;
-                onChanged();
-            }
-            if (other.hasData()) {
-                mergeData(other.getData());
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            cn.iamding.drpc.server.rpc.student.SubmitResult parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (cn.iamding.drpc.server.rpc.student.SubmitResult) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        private java.lang.Object code_ = "";
-
-        /**
-         * <code>string code = 1;</code>
-         */
-        public java.lang.String getCode() {
-            java.lang.Object ref = code_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                code_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string code = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getCodeBytes() {
-            java.lang.Object ref = code_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                code_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string code = 1;</code>
-         */
-        public Builder setCode(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            code_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string code = 1;</code>
-         */
-        public Builder clearCode() {
-
-            code_ = getDefaultInstance().getCode();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string code = 1;</code>
-         */
-        public Builder setCodeBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            code_ = value;
-            onChanged();
-            return this;
-        }
-
-        private java.lang.Object msg_ = "";
-
-        /**
-         * <code>string msg = 2;</code>
-         */
-        public java.lang.String getMsg() {
-            java.lang.Object ref = msg_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                msg_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string msg = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getMsgBytes() {
-            java.lang.Object ref = msg_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                msg_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string msg = 2;</code>
-         */
-        public Builder setMsg(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            msg_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string msg = 2;</code>
-         */
-        public Builder clearMsg() {
-
-            msg_ = getDefaultInstance().getMsg();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string msg = 2;</code>
-         */
-        public Builder setMsgBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            msg_ = value;
-            onChanged();
-            return this;
-        }
-
-        private cn.iamding.drpc.server.rpc.student.Student data_ = null;
-        private com.google.protobuf.SingleFieldBuilderV3<
-                cn.iamding.drpc.server.rpc.student.Student, cn.iamding.drpc.server.rpc.student.Student.Builder, cn.iamding.drpc.server.rpc.student.StudentOrBuilder> dataBuilder_;
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public boolean hasData() {
-            return dataBuilder_ != null || data_ != null;
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public cn.iamding.drpc.server.rpc.student.Student getData() {
-            if (dataBuilder_ == null) {
-                return data_ == null ? cn.iamding.drpc.server.rpc.student.Student.getDefaultInstance() : data_;
-            } else {
-                return dataBuilder_.getMessage();
-            }
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public Builder setData(cn.iamding.drpc.server.rpc.student.Student value) {
-            if (dataBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                data_ = value;
-                onChanged();
-            } else {
-                dataBuilder_.setMessage(value);
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public Builder setData(
-                cn.iamding.drpc.server.rpc.student.Student.Builder builderForValue) {
-            if (dataBuilder_ == null) {
-                data_ = builderForValue.build();
-                onChanged();
-            } else {
-                dataBuilder_.setMessage(builderForValue.build());
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public Builder mergeData(cn.iamding.drpc.server.rpc.student.Student value) {
-            if (dataBuilder_ == null) {
-                if (data_ != null) {
-                    data_ =
-                            cn.iamding.drpc.server.rpc.student.Student.newBuilder(data_).mergeFrom(value).buildPartial();
-                } else {
-                    data_ = value;
-                }
-                onChanged();
-            } else {
-                dataBuilder_.mergeFrom(value);
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public Builder clearData() {
-            if (dataBuilder_ == null) {
-                data_ = null;
-                onChanged();
-            } else {
-                data_ = null;
-                dataBuilder_ = null;
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public cn.iamding.drpc.server.rpc.student.Student.Builder getDataBuilder() {
-
-            onChanged();
-            return getDataFieldBuilder().getBuilder();
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        public cn.iamding.drpc.server.rpc.student.StudentOrBuilder getDataOrBuilder() {
-            if (dataBuilder_ != null) {
-                return dataBuilder_.getMessageOrBuilder();
-            } else {
-                return data_ == null ?
-                        cn.iamding.drpc.server.rpc.student.Student.getDefaultInstance() : data_;
-            }
-        }
-
-        /**
-         * <code>.Student data = 3;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilderV3<
-                cn.iamding.drpc.server.rpc.student.Student, cn.iamding.drpc.server.rpc.student.Student.Builder, cn.iamding.drpc.server.rpc.student.StudentOrBuilder>
+      return this;
+    }
+    /**
+     * <code>.Student data = 3;</code>
+     */
+    public Student.Builder getDataBuilder() {
+      
+      onChanged();
+      return getDataFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Student data = 3;</code>
+     */
+    public StudentOrBuilder getDataOrBuilder() {
+      if (dataBuilder_ != null) {
+        return dataBuilder_.getMessageOrBuilder();
+      } else {
+        return data_ == null ?
+                Student.getDefaultInstance() : data_;
+      }
+    }
+    /**
+     * <code>.Student data = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+            Student, Student.Builder, StudentOrBuilder>
         getDataFieldBuilder() {
-            if (dataBuilder_ == null) {
-                dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                        cn.iamding.drpc.server.rpc.student.Student, cn.iamding.drpc.server.rpc.student.Student.Builder, cn.iamding.drpc.server.rpc.student.StudentOrBuilder>(
-                        getData(),
-                        getParentForChildren(),
-                        isClean());
-                data_ = null;
-            }
-            return dataBuilder_;
-        }
-
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:SubmitResult)
+      if (dataBuilder_ == null) {
+        dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                Student, Student.Builder, StudentOrBuilder>(
+                getData(),
+                getParentForChildren(),
+                isClean());
+        data_ = null;
+      }
+      return dataBuilder_;
+    }
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
-    // @@protoc_insertion_point(class_scope:SubmitResult)
-    private static final cn.iamding.drpc.server.rpc.student.SubmitResult DEFAULT_INSTANCE;
-
-    static {
-        DEFAULT_INSTANCE = new cn.iamding.drpc.server.rpc.student.SubmitResult();
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
     }
 
-    public static cn.iamding.drpc.server.rpc.student.SubmitResult getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
 
-    private static final com.google.protobuf.Parser<SubmitResult>
-            PARSER = new com.google.protobuf.AbstractParser<SubmitResult>() {
-        public SubmitResult parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new SubmitResult(input, extensionRegistry);
-        }
-    };
+    // @@protoc_insertion_point(builder_scope:SubmitResult)
+  }
 
-    public static com.google.protobuf.Parser<SubmitResult> parser() {
-        return PARSER;
-    }
+  // @@protoc_insertion_point(class_scope:SubmitResult)
+  private static final SubmitResult DEFAULT_INSTANCE;
+  static {
+      DEFAULT_INSTANCE = new SubmitResult();
+  }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<SubmitResult> getParserForType() {
-        return PARSER;
-    }
+    public static SubmitResult getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
 
-    public cn.iamding.drpc.server.rpc.student.SubmitResult getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
+  private static final com.google.protobuf.Parser<SubmitResult>
+      PARSER = new com.google.protobuf.AbstractParser<SubmitResult>() {
+    public SubmitResult parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return new SubmitResult(input, extensionRegistry);
     }
+  };
+
+  public static com.google.protobuf.Parser<SubmitResult> parser() {
+    return PARSER;
+  }
+
+    @Override
+  public com.google.protobuf.Parser<SubmitResult> getParserForType() {
+    return PARSER;
+  }
+
+    public SubmitResult getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 

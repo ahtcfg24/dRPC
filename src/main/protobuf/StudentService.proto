@@ -19,8 +19,8 @@ message Student {
 }
 
 message SubmitResult {
-    string code =1;
-    string msg = 2;
+    int32 code =1;
+    string server = 2;
     Student data = 3;
 }
 

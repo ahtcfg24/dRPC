@@ -9,25 +9,20 @@ import cn.iamding.drpc.server.utils.HostUtils;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class StudentServiceImpl extends StudentServiceGrpc.StudentServiceImplBase {
 
-
-    @Value("${grpc.cloud.disk.port}")
-    private int port;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(StudentServiceImpl.class);
 
     @Override
     public void submitStudent(Student student, StreamObserver<SubmitResult> responseObserver) {
-        String serverAddress = HostUtils.getHostIp() + ":" + port;
+        String serverAddress = HostUtils.getHostIp();
         LOGGER.info("[{}] 收到请求：[{}]", serverAddress, student);
-        // TODO: 2018/5/1 处理业务逻辑
-        SubmitResult result = SubmitResult.newBuilder().setCode(Constants.RESPONSE_OK)
-                .setMsg(serverAddress)
+        SubmitResult result = SubmitResult.newBuilder()
+                .setCode(Constants.RESPONSE_OK)
+                .setServer(serverAddress)
                 .setData(student)
                 .build();
         responseObserver.onNext(result);

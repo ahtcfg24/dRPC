@@ -4,43 +4,34 @@
 package cn.iamding.drpc.server.rpc.student;
 
 public interface SubmitResultOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:SubmitResult)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:SubmitResult)
+    com.google.protobuf.MessageOrBuilder {
+
+  /**
+   * <code>int32 code = 1;</code>
+   */
+  int getCode();
 
     /**
-     * <code>string code = 1;</code>
-     */
-    java.lang.String getCode();
+     * <code>string server = 2;</code>
+   */
+    String getServer();
+  /**
+   * <code>string server = 2;</code>
+   */
+  com.google.protobuf.ByteString
+  getServerBytes();
 
-    /**
-     * <code>string code = 1;</code>
-     */
-    com.google.protobuf.ByteString
-    getCodeBytes();
-
-    /**
-     * <code>string msg = 2;</code>
-     */
-    java.lang.String getMsg();
-
-    /**
-     * <code>string msg = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getMsgBytes();
-
-    /**
-     * <code>.Student data = 3;</code>
-     */
-    boolean hasData();
-
-    /**
-     * <code>.Student data = 3;</code>
-     */
-    cn.iamding.drpc.server.rpc.student.Student getData();
-
-    /**
-     * <code>.Student data = 3;</code>
-     */
-    cn.iamding.drpc.server.rpc.student.StudentOrBuilder getDataOrBuilder();
+  /**
+   * <code>.Student data = 3;</code>
+   */
+  boolean hasData();
+  /**
+   * <code>.Student data = 3;</code>
+   */
+  Student getData();
+  /**
+   * <code>.Student data = 3;</code>
+   */
+  StudentOrBuilder getDataOrBuilder();
 }
