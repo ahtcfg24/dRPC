@@ -1,7 +1,6 @@
 package cn.iamding.drpc.server.service;
 
 
-import cn.iamding.drpc.server.Constants;
 import cn.iamding.drpc.server.rpc.disk.CloudDiskServiceGrpc;
 import cn.iamding.drpc.server.rpc.disk.RPCUploadFileRequest;
 import cn.iamding.drpc.server.rpc.disk.RPCUploadFileResponse;
@@ -30,7 +29,7 @@ public class CloudDiskServiceImpl extends CloudDiskServiceGrpc.CloudDiskServiceI
                 .setFileId("id:" + System.currentTimeMillis())
                 .setShareUrl("https://www.baidu.com")
                 .build();
-        rpcResponse = RPCUploadFileResponse.newBuilder().setCode(Constants.RESPONSE_OK)
+        rpcResponse = RPCUploadFileResponse.newBuilder().setCode("A0000")
                 .setMsg("ip=" + HostUtils.getHostIp() + " port=" + port)
                 .setData(uploadResult)
                 .setUploadJsonResponse("testJson")
